@@ -34,6 +34,7 @@ args = parser.parse_args()
 
 
 if __name__ == '__main__':
+    args.data_dir = args.data_dir + args.tissue + '/'
     if args.mode != 'train':
         if not args.cp_dir:
             raise("Error: cp_dir is required for evaluation or inference.")
@@ -42,7 +43,7 @@ if __name__ == '__main__':
     if args.cv:
         for i in np.arange(1, args.cv+1):
             if args.cp_dir:
-                args.cp_path = args.cp_dir + args.tissue + '/f' + str(i) + '.ckpt'
+                args.cp_path = args.cp_dir + args.tissue + '/f' + str(i) + '.h5'
             args.valid_idx = i
             args.train_idx = list(range(1, args.cv + 1))
             args.train_idx.remove(args.valid_idx)

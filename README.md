@@ -30,8 +30,8 @@ An example raw data (genomic coordinates formated as .bed file) can be found in 
 2. step2_rds2npy.py converts generated encodings to suitable Python format for modeling.
 Python codes for GepSe and i-GepSe can be found in Scripts/Gepse and saved weights can be found in Weights/base_predictor:
 ```
-python Scripts/GepSe/main.py --mode infer --data_dir ./Examples/base_predictor/processed/ --geo_enc chunkTX --tx long --cp_dir ./Weights/base_predictor/GepSe/
-python Scripts/GepSe/main.py --mode infer --data_dir ./Examples/base_predictor/processed/ --geo_enc chunkTX --tx all --cp_dir ./Weights/base_predictor/iGepSe/
+python Scripts/GepSe/main.py --mode infer --data_dir ./Examples/base_predictor/processed/ --geo_enc chunkTX --tx long --cp_dir ./Weights/base_predictor/tech_shared/GepSe/ --save_dir ./
+python Scripts/GepSe/main.py --mode infer --data_dir ./Examples/base_predictor/processed/ --geo_enc chunkTX --tx all --cp_dir ./Weights/base_predictor/tech_shared/iGepSe/ --save_dir ./
 ```
 Optional arguments are provided to ease usage:
 - ``--mode``: Three modes can be selected: train, eval and infer;
@@ -47,7 +47,7 @@ python Scripts/GepSe/main.py -h
 Please note that ti-GepSe was trained on MeRIP-seq data with instance length 50. Therefore, the default ti-GepSe provides prediction at up to 50-nt resolution.
 Python codes for ti-GepSe can be found in Scripts/tiGepse and saved weights can be found in Weights/tissue_predictor:
 ```
-python Scripts/tiGepSe/main.py --mode infer --data_dir ./Examples/tissue_predictor/ --tissue Lung --len 50 --cp_dir ./Weights/tissue_predictor/
+python Scripts/tiGepSe/main.py --mode infer --data_dir ./Examples/tissue_predictor/ --tissue Lung --len 50 --cp_dir ./Weights/tissue_predictor/ --save_dir ./
 ```
 Optional arguments are provided to ease usage:
 - ``--mode``: Three modes can be selected: train, eval and infer;

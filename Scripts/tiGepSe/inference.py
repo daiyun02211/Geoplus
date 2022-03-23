@@ -25,6 +25,8 @@ def infer_model(c):
 
     print('Creating model!')
     model = tiGepSe()
+    model([infer_seq[0].reshape(1, -1, c.len, 4).astype(np.float32),
+           infer_geo[0].reshape(1, -1, 35, 7).astype(np.float32)])
     model.load_weights(c.cp_path)
 
     pred = []
